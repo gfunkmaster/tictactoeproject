@@ -43,9 +43,25 @@ namespace TicTacToe
                 char[] playerChars = { 'X', 'O' };
                 foreach (var playerChar in playerChars)
                 {
-                    if((playField[0,0] == playerChar) && (playField[0, 1] == playerChar) && (playField[0, 2] == playerChar))
+                    if((playField[0,0] == playerChar) && (playField[0, 1] == playerChar) && (playField[0, 2] == playerChar)
+                        || (playField[1, 0] == playerChar) && (playField[1, 1] == playerChar) && (playField[1, 2] == playerChar)
+                        || (playField[2, 0] == playerChar) && (playField[2, 1] == playerChar) && (playField[2, 2] == playerChar)
+                        || (playField[0, 0] == playerChar) && (playField[1, 0] == playerChar) && (playField[2, 0] == playerChar)
+                        || (playField[0, 1] == playerChar) && (playField[1, 1] == playerChar) && (playField[1, 2] == playerChar)
+                        || (playField[0, 2] == playerChar) && (playField[2, 1] == playerChar) && (playField[2, 2] == playerChar)
+                        || (playField[0, 0] == playerChar) && (playField[1, 1] == playerChar) && (playField[2, 2] == playerChar)
+                        || (playField[1, 2] == playerChar) && (playField[1, 1] == playerChar) && (playField[2, 0] == playerChar))
+
                     {
-                        Console.WriteLine("we have a winner");
+                        if(playerChar == 'X')
+                        {
+
+                        Console.WriteLine("\nPlayer 2 wins");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nPlayer 1 wins");
+                        }
                     }
                 }
                 #endregion
