@@ -37,6 +37,14 @@ namespace TicTacToe
                     EnterXorO(player, input);
                 }
 
+                //another do while 
+                do
+                {
+                    Console.WriteLine("\nPlayer {0}: Choose your field! ", player);
+                    //converting to a int 
+                    input = Convert.ToInt32(Console.ReadLine());
+
+                } while (!inputCorrect);
 
             } while (true);
         }
@@ -62,6 +70,7 @@ namespace TicTacToe
         {
             char playerSign = ' ';
 
+            // if else for wich player sign
             if (player == 1)
                 playerSign = 'X';
             else if (player == 2)
