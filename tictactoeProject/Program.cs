@@ -12,6 +12,13 @@ namespace TicTacToe
             {'7','8','9' }, // row 2
         };
 
+        static char[,] playFieldInit =
+    {
+            {'1','2','3' }, //row 0
+            {'4','5','6' }, // row 1
+            {'7','8','9' }, // row 2
+        };
+
 
         public static void Main(string[] args)
         {
@@ -62,6 +69,11 @@ namespace TicTacToe
                         {
                             Console.WriteLine("\nPlayer 1 wins");
                         }
+                        
+                        Console.WriteLine("Please, press any key to reset the game");
+                        Console.ReadKey();
+                        ResetField();
+
                         break;
                     }
                 }
@@ -113,6 +125,12 @@ namespace TicTacToe
                 } while (!inputCorrect);
                 #endregion
             } while (true);
+        }
+
+        public static void ResetField()
+        {
+            playField = playFieldInit;
+            SetField();
         }
 
         //creating a visual playfield
