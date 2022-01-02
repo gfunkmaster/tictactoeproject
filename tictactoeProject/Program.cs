@@ -12,13 +12,9 @@ namespace TicTacToe
             {'7','8','9' }, // row 2
         };
 
-        static char[,] playFieldInit =
-    {
-            {'1','2','3' }, //row 0
-            {'4','5','6' }, // row 1
-            {'7','8','9' }, // row 2
-        };
-
+       
+        //creating turn
+        static int turns = 0;
 
         public static void Main(string[] args)
         {
@@ -54,7 +50,7 @@ namespace TicTacToe
                         || (playField[1, 0] == playerChar) && (playField[1, 1] == playerChar) && (playField[1, 2] == playerChar)
                         || (playField[2, 0] == playerChar) && (playField[2, 1] == playerChar) && (playField[2, 2] == playerChar)
                         || (playField[0, 0] == playerChar) && (playField[1, 0] == playerChar) && (playField[2, 0] == playerChar)
-                        || (playField[0, 1] == playerChar) && (playField[1, 1] == playerChar) && (playField[1, 2] == playerChar)
+                        || (playField[0, 1] == playerChar) && (playField[1, 1] == playerChar) && (playField[2, 1] == playerChar)
                         || (playField[0, 2] == playerChar) && (playField[2, 1] == playerChar) && (playField[2, 2] == playerChar)
                         || (playField[0, 0] == playerChar) && (playField[1, 1] == playerChar) && (playField[2, 2] == playerChar)
                         || (playField[1, 2] == playerChar) && (playField[1, 1] == playerChar) && (playField[2, 0] == playerChar))
@@ -74,6 +70,14 @@ namespace TicTacToe
                         Console.ReadKey();
                         ResetField();
 
+                        break;
+                    }
+                    else if(turns == 10)
+                    {
+                        Console.WriteLine("Draw, no winner!");
+                        Console.WriteLine("Please, press any key to reset the game");
+                        Console.ReadKey();
+                        ResetField();
                         break;
                     }
                 }
@@ -129,8 +133,16 @@ namespace TicTacToe
 
         public static void ResetField()
         {
+           char[,] playFieldInit =
+        {
+            {'1','2','3' }, //row 0
+            {'4','5','6' }, // row 1
+            {'7','8','9' }, // row 2
+        };
+
             playField = playFieldInit;
             SetField();
+            turns = 0;
         }
 
         //creating a visual playfield
@@ -151,6 +163,7 @@ namespace TicTacToe
             //Todoo replace numbers with variables
             Console.WriteLine("  {0}  |  {1}  |  {2}", playField[2, 0], playField[2, 1], playField[2, 2]);
             Console.WriteLine("     |     |     ");
+            turns++;
         }
         //creating a method for witch player it is, to improve 
         public static void EnterXorO(int player, int input)
