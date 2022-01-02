@@ -20,11 +20,12 @@ namespace TicTacToe
             bool inputCorrect = true;
 
             //calling the method
-            SetField();
+           
 
             //run code as long as the program runs 
             do
             {
+                SetField();
                 if (player == 2)
                 {
                     player = 1;
@@ -52,6 +53,9 @@ namespace TicTacToe
         //creating a visual playfield
         public static void SetField()
         {
+            //Adding to clear console so we can after each input that we can have a visual
+            // x or o
+            Console.Clear();
             Console.WriteLine("     |     |     ");
             //Todoo replace numbers with variables
             Console.WriteLine("  {0}  |  {1}  |  {2}", playField[0, 0], playField[0, 1], playField[0, 2]);
