@@ -62,6 +62,7 @@ namespace TicTacToe
                         {
                             Console.WriteLine("\nPlayer 1 wins");
                         }
+                        break;
                     }
                 }
                 #endregion
