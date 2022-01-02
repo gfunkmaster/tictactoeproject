@@ -25,7 +25,7 @@ namespace TicTacToe
             //run code as long as the program runs 
             do
             {
-                SetField();
+                
                 if (player == 2)
                 {
                     player = 1;
@@ -37,12 +37,13 @@ namespace TicTacToe
                     player = 2;
                     EnterXorO(player, input);
                 }
-
+                SetField();
                 //another do while 
                 do
                 {
                     Console.WriteLine("\nPlayer {0}: Choose your field! ", player);
                     //converting to a int 
+
                     input = Convert.ToInt32(Console.ReadLine());
 
                 } while (!inputCorrect);
@@ -80,7 +81,7 @@ namespace TicTacToe
             else if (player == 2)
                 playerSign = 'O';
 
-            switch (player)
+            switch (input)
             {
                 case 1: playField[0, 0] = playerSign; break;
                 case 2: playField[0, 1] = playerSign; break;
