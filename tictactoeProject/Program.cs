@@ -38,16 +38,63 @@ namespace TicTacToe
                     EnterXorO(player, input);
                 }
                 SetField();
+                #region
+                //check winning condition
+                char[] playerChars = { 'X', 'O' };
+                foreach (var playerChar in playerChars)
+                {
+                    if((playField[0,0] == playerChar) && (playField[0, 1] == playerChar) && (playField[0, 2] == playerChar))
+                    {
+                        Console.WriteLine("we have a winner");
+                    }
+                }
+                #endregion
+
+                #region
+                //test if field is aleady taken
+
                 //another do while 
                 do
                 {
+                    //implementing a try a catch
                     Console.WriteLine("\nPlayer {0}: Choose your field! ", player);
-                    //converting to a int 
+                    try
+                    {
+                        //converting to a int 
+                        input = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch 
+                    {
+                        Console.WriteLine("Please enter a number!");
+                    }
 
-                    input = Convert.ToInt32(Console.ReadLine());
+                    if ((input == 1) && (playField[0, 0] == '1'))
+                        inputCorrect = true;
+                    else if ((input == 2) && (playField[0, 1] == '2'))
+                        inputCorrect = true;
+                    else if ((input == 3) && (playField[0, 2] == '3'))
+                        inputCorrect = true;
+                    else if ((input == 4) && (playField[1, 0] == '4'))
+                        inputCorrect = true;
+                    else if ((input == 5) && (playField[1, 1] == '5'))
+                        inputCorrect = true;
+                    else if ((input == 6) && (playField[1, 2] == '6'))
+                        inputCorrect = true;
+                    else if ((input == 7) && (playField[2, 0] == '7'))
+                        inputCorrect = true;
+                    else if ((input == 8) && (playField[2, 1] == '8'))
+                        inputCorrect = true;
+                    else if ((input == 9) && (playField[2, 2] == '9'))
+                        inputCorrect = true;
+                    else
+                    {
+                        Console.WriteLine("\n Incorrct input! Please use another field! ");
+                        inputCorrect = false;
+                    };
+
 
                 } while (!inputCorrect);
-
+                #endregion
             } while (true);
         }
 
